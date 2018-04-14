@@ -45,5 +45,17 @@ _handleFinishLoading = async () => {
 ```bash
 # use npm instead of yarn(yarn occure unexpected errors)
 # redux-persist do store redux data on phone storage
-]$ npm install redux-persist redux-thunk redux --save
+]$ npm install redux-persist redux-thunk react-redux redux --save
 ```
+
+* Import redux persist modules
+
+```js
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/es/integration/react";
+import configureStore from "./redux/configureStore";
+
+const { persistor, store } = configureStore();
+```
+
+* PersistGate do wait until load all redux data from storage.
