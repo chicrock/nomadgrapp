@@ -59,3 +59,9 @@ const { persistor, store } = configureStore();
 ```
 
 * PersistGate do wait until load all redux data from storage.
+
+## Create AppContainer
+
+```bash
+]$ npm install prop-types --save
+```

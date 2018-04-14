@@ -9,7 +9,7 @@
 /// Initial State
 
 const initialState = {
-  isLoggedin: false,
+  isLoggedIn: false,
 };
 
 /// Reducer
