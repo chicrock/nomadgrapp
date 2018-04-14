@@ -65,3 +65,25 @@ const { persistor, store } = configureStore();
 ```bash
 ]$ npm install prop-types --save
 ```
+
+## Navigation
+
+* Application is different from web.
+  > Don't have link, url change, refresh...
+* Use React Navigation
+
+* There is two kind of navigation.
+  1.  Tab navigation
+      > Same depth each containers
+      >
+      > Tabs are next each other
+  2.  Stack navigation
+      > There exist depth each containers
+      >
+      > Screen exist top of the other one. Cover each other
+      >
+      > Has Two Mode. Screen and popup modal
+
+```bash
+]$ npm install --save react-navigation
+```
