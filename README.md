@@ -87,3 +87,19 @@ const { persistor, store } = configureStore();
 ```bash
 ]$ npm install --save react-navigation
 ```
+
+## Ionicons
+
+* Can find [expo vector-icons](https://expo.github.io/vector-icons/)
+
+```js
+import Ionicons from "@expo/vector-icons";
+```
+
+## TextInput underlines on android
+
+* When appears underlines in TextInput on Android, then add this code on TextInput's props
+
+```js
+underlineColorAndroid = "rgba(0,0,0,0)";
+```

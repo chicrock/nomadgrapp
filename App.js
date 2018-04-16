@@ -38,10 +38,10 @@ class App extends React.Component {
   _loadAssetsAsync = async () => {
     return Promise.all([
       Asset.loadAsync([
-        require("images/logo.png"),
-        require("images/logo-white.png"),
-        require("images/noPhoto.jpg"),
-        require("images/photoPlaceholder.png"),
+        require("./assets/images/logo.png"),
+        require("./assets/images/logo-white.png"),
+        require("./assets/images/noPhoto.jpg"),
+        require("./assets/images/photoPlaceholder.png"),
       ]),
       Font.loadAsync({
         ...Ionicons.font,
