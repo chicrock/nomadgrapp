@@ -18,6 +18,8 @@ class App extends React.Component {
   };
   render() {
     const { isLoadingComplete } = this.state;
+    /// force logout
+    //store.dispatch({ type: "LOG_OUT" });
     if (!isLoadingComplete) {
       return (
         <AppLoading
