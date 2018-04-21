@@ -33,7 +33,7 @@ function setUser(user) {
 /// API Actions
 function login(username, password) {
   return dispatch => {
-    fetch(`${API_URL}/rest-auth/login/`, {
+    return fetch(`${API_URL}/rest-auth/login/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
