@@ -8,14 +8,17 @@ import {
   TouchableOpacity,
   TextInput,
   StatusBar,
+  ActivityIndicator,
 } from "react-native";
+
+import PropTypes from "prop-types";
 
 import { LinearGradient } from "expo";
 import { Ionicons } from "@expo/vector-icons";
 
 const { width, height } = Dimensions.get("window");
 
-const LogInScreen = (props) => (
+const LogInScreen = props => (
   <View style={styles.container}>
     <StatusBar barStyle={"light-content"} />
     <LinearGradient style={styles.header} colors={["#11C6F8", "#4E65B4"]}>
@@ -32,6 +35,8 @@ const LogInScreen = (props) => (
         autoCapitalize="none"
         autoCorrect={false}
         underlineColorAndroid="rgba(0,0,0,0)"
+        value={props.username}
+        onChangeText={props.changeUsername}
       />
       <TextInput
         placeholder="Password"
@@ -40,10 +45,18 @@ const LogInScreen = (props) => (
         secureTextEntry={true}
         autoCorrect={false}
         underlineColorAndroid="rgba(0,0,0,0)"
+        value={props.password}
+        onChangeText={props.changePassword}
+        returnKeyType={"send"}
+        onEndEditing={props.submit}
       />
-      <TouchableOpacity style={styles.touchable}>
+      <TouchableOpacity style={styles.touchable} onPressOut={props.submit}>
         <View style={styles.button}>
-          <Text style={styles.btnText}>Log In</Text>
+          {props.isSubmitting ? (
+            <ActivityIndicator size="small" color="white" />
+          ) : (
+            <Text style={styles.btnText}>Log In</Text>
+          )}
         </View>
       </TouchableOpacity>
       <TouchableOpacity style={styles.fbContainer}>
@@ -55,6 +68,15 @@ const LogInScreen = (props) => (
     </View>
   </View>
 );
+
+LogInScreen.propTypes = {
+  isSubmitting: PropTypes.bool.isRequired,
+  username: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  changeUsername: PropTypes.func.isRequired,
+  changePassword: PropTypes.func.isRequired,
+  submit: PropTypes.func.isRequired,
+};
 
 const styles = StyleSheet.create({
   container: {
