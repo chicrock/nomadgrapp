@@ -119,3 +119,17 @@ underlineColorAndroid = "rgba(0,0,0,0)";
 # Add ALLOWED_HOSTS config/settings/local.py
 ALLOWED_HOSTS = ["*"]
 ```
+
+## Facebook login
+
+* [Facebook login on expo](https://docs.expo.io/versions/latest/sdk/facebook.html)
+
+* Have to add platforms ios and android on [Facebook Developers](https://developers.facebook.com/)
+
+```
+Add host.exp.Exponent as an iOS Bundle ID. Add rRW++LUjmZZ+58EbN5DVhGAnkX4= as an Android key hash. Your app's settings should end up including the following under "Settings > Basic"
+```
+
+## Standalone App
+
+* See https://docs.expo.io/versions/v26.0.0/distribution/building-standalone-apps
