@@ -49,7 +49,7 @@ class App extends React.Component {
       }),
     ]);
   };
-  _handleLoadingError = (error) => {
+  _handleLoadingError = error => {
     console.error(error);
   };
   _handleFinishLoading = async () => {
