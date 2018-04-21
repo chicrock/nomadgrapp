@@ -28,7 +28,7 @@ _loadAssetsAsync = async () => {
     Font.loadAsync([...IonIcons.font, ...MaterialIcons.font]),
   ]);
 };
-_handleLoadingError = (error) => {
+_handleLoadingError = error => {
   cosole.log(error);
 };
 _handleFinishLoading = async () => {
@@ -102,4 +102,20 @@ import Ionicons from "@expo/vector-icons";
 
 ```js
 underlineColorAndroid = "rgba(0,0,0,0)";
+```
+
+## Localhost django api server to open
+
+* Something like proxy server
+* Go https://ngrok.com
+* Download ngrok related on your os
+
+```bash
+# run with your port that you want to share
+]$ ngrok 8000
+```
+
+```python
+# Add ALLOWED_HOSTS config/settings/local.py
+ALLOWED_HOSTS = ["*"]
 ```

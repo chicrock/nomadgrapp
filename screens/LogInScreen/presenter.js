@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     width: width - 80,
     height: 50,
     borderColor: "#BBB",
-    borderWidth: 1, /// StyleSheet.hairlineWidth, /// (Very thin)
+    borderWidth: StyleSheet.hairlineWidth, /// (Very thin)
     borderRadius: 5,
     marginBottom: 15,
     paddingHorizontal: 15,
@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: "#3E99EE",
     width: width - 80,
+    marginTop: 25,
   },
   button: {
     paddingHorizontal: 7,
