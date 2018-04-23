@@ -71,6 +71,7 @@ const { persistor, store } = configureStore();
 * Application is different from web.
   > Don't have link, url change, refresh...
 * Use React Navigation
+* See [React Navigation Docs](https://reactnavigation.org/docs/getting-started.html)
 
 * There is two kind of navigation.
   1.  Tab navigation

@@ -77,6 +77,8 @@ const TabsNavigation = TabNavigator(
         height: 45,
       },
     },
+    swipeEnabled: true,
+    animationEnabled: true,
   }
 );
 

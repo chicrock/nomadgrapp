@@ -19,6 +19,9 @@ const RootNavigation = StackNavigator(
   },
   {
     mode: "modal",
+    navigationOptions: {
+      //gesturesEnabled: false,
+    },
   }
 );
 
