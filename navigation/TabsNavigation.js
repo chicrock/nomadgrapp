@@ -1,4 +1,5 @@
 import React from "react";
+import { View } from "react-native";
 
 import { TabNavigator } from "react-navigation";
 import { Ionicons } from "@expo/vector-icons";
@@ -31,6 +32,14 @@ const TabsNavigation = TabNavigator(
             size={30}
             color={"black"}
           />
+        ),
+      },
+    },
+    AddPhoto: {
+      screen: View,
+      navigationOptions: {
+        tabBarIcon: ({ focused }) => (
+          <Ionicons name={"ios-add-circle-outline"} size={30} color={"black"} />
         ),
       },
     },
