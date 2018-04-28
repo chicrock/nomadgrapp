@@ -6,6 +6,9 @@ const NotificationsRoute = StackNavigator(
   {
     Notifications: {
       screen: NotificationsScreen,
+      navigationOptions: {
+        headerTitle: "Notifications",
+      },
     },
     ...sharedRoutes,
   },

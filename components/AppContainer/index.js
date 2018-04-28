@@ -6,6 +6,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     isLoggedIn: user.isLoggedIn,
+    profile: user.profile,
   };
 };
 
