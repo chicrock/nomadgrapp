@@ -6,6 +6,11 @@ const HomeRoute = StackNavigator(
   {
     Home: {
       screen: FeedScreen,
+      /*
+      navigationOptions: {
+        title: "Nomadgram",
+      },
+      */
     },
     ...sharedRoutes,
   },
