@@ -8,6 +8,7 @@ class AppContainer extends Component {
   static propTypes = {
     isLoggedIn: PropTypes.bool.isRequired,
   };
+
   render() {
     const { isLoggedIn, profile } = this.props;
     return (

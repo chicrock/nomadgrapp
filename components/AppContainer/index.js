@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import AppContainer from "./presenter";
+import { actionCreators as userActions } from "../../redux/modules/user";
 import { actionCreators as photoActions } from "../../redux/modules/photos";
 
 const mapStateToProps = (state, ownProps) => {
@@ -17,6 +18,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       /// getFeed
       dispatch(photoActions.getFeed());
       /// getSearch
+      dispatch(photoActions.getSearch());
       /// getNotifications
       /// getProfile
     },
