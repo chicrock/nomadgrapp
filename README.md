@@ -134,3 +134,11 @@ Add host.exp.Exponent as an iOS Bundle ID. Add rRW++LUjmZZ+58EbN5DVhGAnkX4= as a
 ## Standalone App
 
 * See https://docs.expo.io/versions/v26.0.0/distribution/building-standalone-apps
+
+## Install react-native-fade-in-image
+
+* It's for fade in animation to loading images
+
+```bash
+]$ npm install react-native-fade-in-image --save
+```
