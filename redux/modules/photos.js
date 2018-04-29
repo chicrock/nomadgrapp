@@ -26,10 +26,12 @@ function setSearch(search) {
 /// Api action
 function getFeed() {
   return (dispatch, getState) => {
-    const { user: token } = getState();
+    const {
+      user: { token },
+    } = getState();
     fetch(`${API_URL}/images/`, {
       headers: {
-        Authorizations: `JWT ${token}`,
+        Authorization: `JWT ${token}`,
       },
     })
       .then(response => {
@@ -47,10 +49,12 @@ function getFeed() {
 
 function getSearch() {
   return (dispatch, getState) => {
-    const { user: token } = getState();
+    const {
+      user: { token },
+    } = getState();
     fetch(`${API_URL}/images/search/`, {
       headers: {
-        Authorizations: `JWT ${token}`,
+        Authorization: `JWT ${token}`,
       },
     })
       .then(response => {
