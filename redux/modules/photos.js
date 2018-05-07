@@ -70,6 +70,52 @@ function getSearch() {
   };
 }
 
+function likePhoto(photoId) {
+  return (dispatch, getState) => {
+    const {
+      user: { token },
+    } = getState();
+
+    return fetch(`${API_URL}/images/${photoId}/likes/`, {
+      method: "POST",
+      headers: {
+        Authorization: `JWT ${token}`,
+      },
+    }).then(response => {
+      if (response.status === 401) {
+        dispatch(userActions.logOut());
+      } else if (response.ok) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  };
+}
+
+function unlikePhoto(photoId) {
+  return (dispatch, getState) => {
+    const {
+      user: { token },
+    } = getState();
+
+    return fetch(`${API_URL}/images/${photoId}/unlikes/`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `JWT ${token}`,
+      },
+    }).then(response => {
+      if (response.status === 401) {
+        dispatch(userActions.logOut());
+      } else if (response.ok) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  };
+}
+
 /// Initial State
 const initialState = {};
 
@@ -110,6 +156,8 @@ function applySetSearch(state, action) {
 const actionCreators = {
   getFeed,
   getSearch,
+  likePhoto,
+  unlikePhoto,
 };
 
 export { actionCreators };
