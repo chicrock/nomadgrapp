@@ -44,9 +44,9 @@ const Photo = props => (
     </FadeIn>
     <View style={styles.photoMeta}>
       <PhotoActions
-        isLiked={props.is_liked}
-        likeCount={props.like_count}
-        handlePress={props.dispatchLike}
+        isLiked={props.isLiked}
+        likeCount={props.likeCount}
+        handlePress={props.handlePress}
       />
       <View style={styles.comment}>
         <Text style={styles.commentAuthor}>
@@ -154,6 +154,7 @@ Photo.propTypes = {
   natural_time: PropTypes.string.isRequired,
   is_liked: PropTypes.bool,
   is_vertical: PropTypes.bool.isRequired,
+  handlePress: PropTypes.func.isRequired,
 };
 
 export default withNavigation(Photo);
