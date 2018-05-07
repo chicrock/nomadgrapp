@@ -19,28 +19,25 @@ class Container extends Component {
     );
   }
 
-  _handlePress = async () => {
+  _handlePress = () => {
     const { dispatchLike } = this.props;
     const { isLiked } = this.state;
-    const result = await dispatchLike(isLiked);
+    dispatchLike(isLiked);
 
-    if (result) {
-      if (isLiked) {
-        this.setState(prevState => {
-          return {
-            isLiked: false,
-            likeCount: prevState.likeCount - 1,
-          };
-        });
-      } else {
-        this.setState(prevState => {
-          return {
-            isLiked: true,
-            likeCount: prevState.likeCount + 1,
-          };
-        });
-      }
+    if (isLiked) {
+      this.setState(prevState => {
+        return {
+          isLiked: false,
+          likeCount: prevState.likeCount - 1,
+        };
+      });
     } else {
+      this.setState(prevState => {
+        return {
+          isLiked: true,
+          likeCount: prevState.likeCount + 1,
+        };
+      });
     }
   };
 }
