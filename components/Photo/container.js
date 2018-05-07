@@ -3,13 +3,10 @@ import PropTypes from "prop-types";
 import Photo from "./presenter";
 
 class Container extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLiked: props.is_liked,
-      likeCount: props.like_count,
-    };
-  }
+  state = {
+    isLiked: this.props.is_liked,
+    likeCount: this.props.like_count,
+  };
   static propTypes = {
     dispatchLike: PropTypes.func.isRequired,
   };
