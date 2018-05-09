@@ -142,3 +142,11 @@ Add host.exp.Exponent as an iOS Bundle ID. Add rRW++LUjmZZ+58EbN5DVhGAnkX4= as a
 ```bash
 ]$ npm install react-native-fade-in-image --save
 ```
+
+## Install react-native-fit-image
+
+* For search screen
+
+```bash
+]$ npm install react-native-fit-image --save
+```

@@ -55,9 +55,7 @@ class App extends React.Component {
     console.error(error);
   };
   _handleFinishLoading = async () => {
-    this.setState({
-      isLoadingComplete: true,
-    });
+    this.setState({ isLoadingComplete: true });
   };
 }
 
