@@ -153,6 +153,50 @@ function getOwnProfile() {
   };
 }
 
+function followUser(userId) {
+  return (dispatch, getState) => {
+    const {
+      user: { token },
+    } = getState();
+    return fetch(`${API_URL}/users/${userId}/follow/`, {
+      method: "POST",
+      headers: {
+        Authorization: `JWT ${token}`,
+      },
+    }).then(response => {
+      if (response.status === 401) {
+        dispatch(logOut());
+      } else if (response.ok) {
+        return true;
+      } else if (!response.ok) {
+        return false;
+      }
+    });
+  };
+}
+
+function unfollowUser(userId) {
+  return (dispatch, getState) => {
+    const {
+      user: { token },
+    } = getState();
+    return fetch(`${API_URL}/users/${userId}/unfollow/`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `JWT ${token}`,
+      },
+    }).then(response => {
+      if (response.status === 401) {
+        dispatch(logOut());
+      } else if (response.ok) {
+        return true;
+      } else if (!response.ok) {
+        return false;
+      }
+    });
+  };
+}
+
 /// Initial State
 
 const initialState = {
@@ -221,6 +265,8 @@ const actionCreators = {
   logOut,
   getNotifications,
   getOwnProfile,
+  followUser,
+  unfollowUser,
 };
 
 export { actionCreators };
