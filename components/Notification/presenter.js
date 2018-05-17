@@ -16,7 +16,7 @@ const { width, height } = Dimensions.get("window");
 const Notification = props => (
   <View style={styles.container}>
     <TouchableOpacity
-      onPress={() =>
+      onPressOut={() =>
         props.navigation.navigate("ProfileDetail", {
           user: props.creator,
         })
@@ -54,11 +54,13 @@ const Notification = props => (
         </View>
       </TouchableOpacity>
     ) : (
-      <Image
-        source={{ uri: props.image.file }}
-        style={styles.payload}
-        defaultSource={require("../../assets/images/photoPlaceholder.png")}
-      />
+      <TouchableOpacity onPressOut={() => props.navigation.navigate("Photo")}>
+        <Image
+          source={{ uri: props.image.file }}
+          style={styles.payload}
+          defaultSource={require("../../assets/images/photoPlaceholder.png")}
+        />
+      </TouchableOpacity>
     )}
   </View>
 );
