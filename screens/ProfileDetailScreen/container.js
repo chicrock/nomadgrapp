@@ -28,7 +28,7 @@ class Container extends Component {
 
   render() {
     const { profileObject } = this.state;
-    return <Profile {...this.state} />;
+    return <Profile {...this.state} refresh={this._getProfile} />;
   }
 
   _getProfile = async () => {
