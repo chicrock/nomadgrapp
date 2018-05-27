@@ -150,3 +150,14 @@ Add host.exp.Exponent as an iOS Bundle ID. Add rRW++LUjmZZ+58EbN5DVhGAnkX4= as a
 ```bash
 ]$ npm install react-native-fit-image --save
 ```
+
+## Action Sheet
+
+* Use Action Sheet with global settings or confirms..
+* And use on logout.
+
+```bash
+]$ npm install react-native-actionsheet --save
+```
+
+* Need reference that is the way, can access to component with react
