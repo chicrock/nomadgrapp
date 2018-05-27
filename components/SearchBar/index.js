@@ -24,6 +24,7 @@ class SearchBar extends Component {
           onEndEditing={this._handleSubmit}
           autoCapitalize={"none"}
           autoCorrect={false}
+          underlineColorAndroid="rgba(0,0,0,0)"
         />
       </View>
     );
