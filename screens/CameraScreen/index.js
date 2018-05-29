@@ -14,6 +14,7 @@ import FitImage from "react-native-fit-image";
 class CameraScreen extends Component {
   state = {
     hasCameraPermissions: null,
+    hasCameraRollPermissions: null,
     type: Camera.Constants.Type.back,
     flash: Camera.Constants.FlashMode.off,
     pictureTaken: false,
@@ -26,20 +27,25 @@ class CameraScreen extends Component {
     this.setState({
       ...this.state,
       hasCameraPermissions: camera.status === "granted",
+      hasCameraRollPermissions: cameraRoll.status === "granted",
     });
   };
   render() {
     const {
       hasCameraPermissions,
+      hasCameraRollPermissions,
       type,
       flash,
       pictureTaken,
       picture,
     } = this.state;
 
-    if (hasCameraPermissions === null) {
+    if (hasCameraPermissions === null || hasCameraRollPermissions === null) {
       return <View />;
-    } else if (hasCameraPermissions === false) {
+    } else if (
+      hasCameraPermissions === false ||
+      hasCameraRollPermissions === false
+    ) {
       return (
         <View>
           <Text>No Access to camera, check your settings</Text>
@@ -92,9 +98,24 @@ class CameraScreen extends Component {
             </Camera>
           )}
           <View style={styles.btnContainer}>
-            <TouchableOpacity onPressOut={this._takePhoto}>
-              <View style={styles.btn} />
-            </TouchableOpacity>
+            {pictureTaken ? (
+              <View style={styles.photoActions}>
+                <TouchableOpacity onPressOut={this._rejectPhoto}>
+                  <MaterialIcons name={"cancel"} size={60} color="black" />
+                </TouchableOpacity>
+                <TouchableOpacity onPressOut={this._approvePhoto}>
+                  <MaterialIcons
+                    name={"check-circle"}
+                    size={60}
+                    color="black"
+                  />
+                </TouchableOpacity>
+              </View>
+            ) : (
+              <TouchableOpacity onPressOut={this._takePhoto}>
+                <View style={styles.btn} />
+              </TouchableOpacity>
+            )}
           </View>
         </View>
       );
@@ -130,7 +151,7 @@ class CameraScreen extends Component {
           quality: 0.5,
           exif: true,
         });
-        console.log(takenPhoto);
+        //console.log(takenPhoto);
 
         this.setState({
           pictureTaken: true,
@@ -138,6 +159,21 @@ class CameraScreen extends Component {
         });
       }
     }
+  };
+  _rejectPhoto = () => {
+    this.setState({
+      picture: null,
+      pictureTaken: false,
+    });
+  };
+  _approvePhoto = async () => {
+    const { picture } = this.state;
+    const saveResult = await CameraRoll.saveToCameraRoll(picture, "photo");
+
+    this.setState({
+      picture: null,
+      pictureTaken: false,
+    });
   };
 }
 
@@ -170,6 +206,13 @@ const styles = StyleSheet.create({
     height: 40,
     width: 40,
     margin: 10,
+  },
+  photoActions: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    flex: 1,
+    alignItems: "center",
+    width: 250,
   },
 });
 
