@@ -23,6 +23,7 @@ class CameraScreen extends Component {
 
   componentWillMount = async () => {
     const camera = await Permissions.askAsync(Permissions.CAMERA);
+    const cameraRoll = await Permissions.askAsync(Permissions.CAMERA_ROLL);
 
     this.setState({
       ...this.state,
