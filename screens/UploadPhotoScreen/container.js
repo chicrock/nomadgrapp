@@ -66,6 +66,10 @@ class Container extends Component {
         navigation.goBack(null);
         navigation.goBack(null);
         navigation.goBack(null);
+      } else {
+        this.setState({
+          isSubmitting: false,
+        });
       }
     } else {
       Alert.alert("All fields are required");
