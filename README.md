@@ -161,3 +161,11 @@ Add host.exp.Exponent as an iOS Bundle ID. Add rRW++LUjmZZ+58EbN5DVhGAnkX4= as a
 ```
 
 * Need reference that is the way, can access to component with react
+
+## UUID
+
+* Install UUID for make file name
+
+```bash
+]$ npm install uuid --save
+```
